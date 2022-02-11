@@ -1,76 +1,150 @@
-# Create a method to decode a Morse code character, takes a string parameter, and return the corresponding character in uppercase (e.g. decode_char(".-") returns "A").
+# Create a method to decode a Morse code character.
 
 def decode_char(word)
-  if word == ".-"
-    puts "A"
-  end
+  puts 'A' if word == '.-'
 end
 
-decode_char(".-")
+decode_char('.-')
 
-#Create a method to decode an entire word in Morse code
+# Create a method to decode an entire word in Morse code
 
 def decode_word(word)
   myword = []
-  letter = word.split(' ')
-  letter.each { |l|
-    if l == ".-"
-      myword << "A"
-    elsif ( l == "-...") 
-      myword << "B"
-    elsif ( l == "-.-.") 
-      myword << "C"
-    elsif ( l == "-..") 
-      myword << "D"
-    elsif ( l == ".") 
-      myword << "E"
-    elsif ( l == "..-.") 
-      myword << "F"
-    elsif ( l == "--.") 
-      myword << "G"
-    elsif ( l == "....") 
-      myword << "H"
-    elsif ( l == "..") 
-      myword << "I"
-    elsif ( l == ".---") 
-      myword << "J"
-    elsif ( l == "-.-") 
-      myword << "K"
-    elsif ( l == ".-..") 
-      myword << "L"
-    elsif l == "--" 
-      myword << "M"
-    elsif ( l == "-.") 
-      myword << "N"
-    elsif ( l == "---") 
-      myword << "O"
-    elsif ( l == ".--.") 
-      myword << "P"
-    elsif ( l == "--.-") 
-      myword << "Q"
-    elsif ( l == ".-.") 
-      myword << "R"
-    elsif ( l == "...") 
-      myword << "S"
-    elsif ( l == "-") 
-      myword << "T"
-    elsif ( l == "..-") 
-      myword << "U"
-    elsif ( l == "...-") 
-      myword << "V"   
-    elsif (l == ".--") 
-      myword << "W"
-    elsif (l == "-..-") 
-      myword << "X"
-    elsif l == "-.--" 
-      myword << "Y"
-    elsif (l == "--..")
-      myword << "Z"
-    else 
-      myword << "Number"
-    end
-  }
-  puts myword.join("")
-end 
+  letter = word.split
+  letter.each do |l|
+    myword << case l
+              when '.-'
+                'A'
+              when '-...'
+                'B'
+              when '-.-.'
+                'C'
+              when '-..'
+                'D'
+              when '.'
+                'E'
+              when '..-.'
+                'F'
+              when '--.'
+                'G'
+              when '....'
+                'H'
+              when '..'
+                'I'
+              when '.---'
+                'J'
+              when '-.-'
+                'K'
+              when '.-..'
+                'L'
+              when '--'
+                'M'
+              when '-.'
+                'N'
+              when '---'
+                'O'
+              when '.--.'
+                'P'
+              when '--.-'
+                'Q'
+              when '.-.'
+                'R'
+              when '...'
+                'S'
+              when '-'
+                'T'
+              when '..-'
+                'U'
+              when '...-'
+                'V'
+              when '.--'
+                'W'
+              when '-..-'
+                'X'
+              when '-.--'
+                'Y'
+              when '--..'
+                'Z'
+              else
+                'Number'
+              end
+  end
+  puts myword.join
+end
 
-decode_word("-- -.--")
+decode_word('-- -.--')
+
+# Create a method to decode the entire message in Morse code
+
+def decode(message)
+  mymessage = []
+
+  word = message.split('   ')
+  word.each do |w|
+    letter = w.split
+    myword = []
+    letter.each do |l|
+      myword << case l
+                when '.-'
+                  'A'
+                when '-...'
+                  'B'
+                when '-.-.'
+                  'C'
+                when '-..'
+                  'D'
+                when '.'
+                  'E'
+                when '..-.'
+                  'F'
+                when '--.'
+                  'G'
+                when '....'
+                  'H'
+                when '..'
+                  'I'
+                when '.---'
+                  'J'
+                when '-.-'
+                  'K'
+                when '.-..'
+                  'L'
+                when '--'
+                  'M'
+                when '-.'
+                  'N'
+                when '---'
+                  'O'
+                when '.--.'
+                  'P'
+                when '--.-'
+                  'Q'
+                when '.-.'
+                  'R'
+                when '...'
+                  'S'
+                when '-'
+                  'T'
+                when '..-'
+                  'U'
+                when '...-'
+                  'V'
+                when '.--'
+                  'W'
+                when '-..-'
+                  'X'
+                when '-.--'
+                  'Y'
+                when '--..'
+                  'Z'
+                else
+                  'Number'
+                end
+    end
+    mymessage << myword.join
+  end
+  puts mymessage.join(' ')
+end
+
+decode('-- -.--   -. .- -- .')
+decode('... --- ... ')
