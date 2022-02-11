@@ -1,62 +1,16 @@
 # Create a method to decode a Morse code character
 
 def decode_char(char)
-  l = char
-  case l
-  when '.-'
-    'A'
-  when '-...'
-    'B'
-  when '-.-.'
-    'C'
-  when '-..'
-    'D'
-  when '.'
-    'E'
-  when '..-.'
-    'F'
-  when '--.'
-    'G'
-  when '....'
-    'H'
-  when '..'
-    'I'
-  when '.---'
-    'J'
-  when '-.-'
-    'K'
-  when '.-..'
-    'L'
-  when '--'
-    'M'
-  when '-.'
-    'N'
-  when '---'
-    'O'
-  when '.--.'
-    'P'
-  when '--.-'
-    'Q'
-  when '.-.'
-    'R'
-  when '...'
-    'S'
-  when '-'
-    'T'
-  when '..-'
-    'U'
-  when '...-'
-    'V'
-  when '.--'
-    'W'
-  when '-..-'
-    'X'
-  when '-.--'
-    'Y'
-  when '--..'
-    'Z'
-  else
-    'Number'
+  morse_chars_codes = {
+    '.-' => 'A', '-...' => 'B', '-.-.' => 'C', '-..' => 'D', '.' => 'E',
+    '..-.' => 'F', '--.' => 'G', '....' => 'H', '..' => 'I', '.---' => 'J',
+    '-.-' => 'K', '.-..' => 'L', '--' => 'M', '-.' => 'N', '---' => 'O',
+    '.--.' => 'P', '--.-' => 'Q', '.-.' => 'R', '...' => 'S', '-' => 'T',
+    '..-' => 'U', '...-' => 'V', '.--' => 'W', '-..-' => 'X', '-.--' => 'Y',
+    '--..' => 'Z'
+  }
+  morse_chars_codes.each do |key, value|
+    return value if key == char
   end
 end
 
@@ -87,4 +41,4 @@ def decode(message)
 end
 
 decode('-- -.--   -. .- -- .')
-decode('.-   -... --- -..-   ..-. ..- .-.. .-..   --- ..-. / .-. ..- -... .. . ... ')
+decode('.-   -... --- -..-   ..-. ..- .-.. .-..   --- ..-.   .-. ..- -... .. . ... ')
